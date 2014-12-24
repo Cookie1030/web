@@ -1,0 +1,18 @@
+cd /usr/local/src/
+wget http://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.36.tar.gz
+tar -xzvf pure-ftpd-1.0.36.tar.gz
+
+cd pure-ftpd-1.0.36
+
+./configure \
+--prefix=/usr/local/pureftpd \
+–with-everything \
+--with-cookie \
+--with-ftpwho \
+--with-language=english \
+--with-ldap \
+--with-minimal \
+--with-mysql \
+--with-nonroot
+
+make && make install
