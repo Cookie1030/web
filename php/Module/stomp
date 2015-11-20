@@ -1,0 +1,15 @@
+http://php.net/
+search “stomp”
+installing/configuring
+installation
+http://pecl.php.net/package/stomp
+copy "stomp-1.0.5.tgz"
+
+[root@cookie~]# wget http://pecl.php.net/get/stomp-1.0.5.tgz
+[root@cookie~]# tar -zxf stomp-1.0.5.tgz
+[root@cookie~]# cd stomp-1.0.5
+[root@cookie~]# /srv/php/bin/phpize
+[root@cookie~]# ./configure --enable-stomp --with-php-config=/srv/php/bin/php-config
+[root@cookie~]# make && make install
+[root@cookie~]# cd ..
+[root@cookie~]# php -m
