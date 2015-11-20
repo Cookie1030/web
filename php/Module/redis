@@ -1,0 +1,27 @@
+mkdir /usr/local/redis 
+cd /usr/local/src
+wget http://download.redis.io/releases/redis-3.0.5.tar.gz
+tar xzf redis-3.0.5.tar.gz 
+ln -s redis-3.0.5 redis
+cd redis
+make PREFIX=/usr/local/redis install
+cp /usr/local/src/redis/utils/redis_init_script /etc/rc.d/init.d/redis
+chkconfig --add redis
+vim /etc/rc.d/init.d/redis
+    #chkconfig: 2345 80 90 
+    EXEC=/usr/local/redis/bin/redis-server   
+    CLIEXEC=/usr/local/redis/bin/redis-cli 
+
+
+mkdir /etc/redis
+cp /usr/local/src/redis/redis.conf /etc/redis/6379.conf 
+chkconfig --add redis 
+service redis start 
+
+vim /etc/profile 
+   export PATH="$PATH:/usr/local/redis/bin"
+   
+   
+. /etc/profile
+redis-cli
+   
